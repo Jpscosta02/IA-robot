@@ -13,6 +13,16 @@ mt_ataque = Motor(Port.B)
 ev3 = EV3Brick()
 
 def ataque() -> None:
+
+    """
+    1. Dá um sinal sonoro.
+    2. Roda o motor para a tras até encontrar resistência (stall).
+    3. Espera 500 ms.
+    4. Roda ate deixar a bola cair.
+    5. Espera mais 500 ms.
+    6. Roda para atacar ate econtrar resistencia.
+    7. Dá outro sinal sonoro para indicar o fim do ataque.
+    """
     ev3.speaker.beep()
     mt_ataque.run_until_stalled(800)      
     wait(500)             
