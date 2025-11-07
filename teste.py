@@ -40,11 +40,9 @@ def som():
 
     # Iniciar movimento (sentido negativo, 10000 graus) sem bloquear
     mt_meio.run_angle(-100, 10000, wait=False)
-
-    mt_ativo = True
-
+    
     # Enquanto o motor não atingir o destino
-    while abs(mt_meio.angle() - ang_inicial and mt_ativo) < 10000:
+    while abs(mt_meio.angle() - ang_inicial) < 10000:
         
         distancia = sensor_som.distance()  # devolve em milímetros
 
@@ -56,7 +54,6 @@ def som():
         if (distancia_cm < 60):  # 5 cm = 50 mm
             print("🚨 Objeto detetado a", distancia_cm, "cm — a atacar!")
             wait(800)
-            mt_ativo = False
             mt_meio.stop()   # parar o movimento
             ataque()         # chamar a função de ataque
             break
